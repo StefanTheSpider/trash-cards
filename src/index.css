@@ -2,6 +2,12 @@ body {
     margin: 0;
 }
 
+img,
+.btn,
+.second-element {
+    border-radius: 0.5rem;
+}
+
 img {
     width: 20rem;
     height: 20rem;
