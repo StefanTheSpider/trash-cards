@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Button from './Button';
 
 const allCandidats = [
     {
@@ -23,11 +24,12 @@ const allCandidats = [
     },
 ];
 export default function App() {
-    const [candidats, setCandidats] = useState(allCandidats);
+    const candidats = allCandidats;
 
     return (
         <div className="App">
             <CanditatList canditates={candidats} />
+            <Button>Add new canditate</Button>
         </div>
     );
 }
@@ -59,6 +61,7 @@ function Canditat({ candidate }) {
                         <img src={candidate.image2} alt="Bild 2" />
                     ) : (
                         <img
+                            style={{ outline: '2px solid tomato' }}
                             src="https://img.freepik.com/freie-psd/x-symbol-isoliert_23-2150500369.jpg?size=626&ext=jpg"
                             alt="emty"
                         />
@@ -88,6 +91,7 @@ function Canditat({ candidate }) {
                 </div>
                 <hr />
             </div>
+            {secondImage === '' ? <Button>Add restyling image</Button> : ''}
         </div>
     );
 }

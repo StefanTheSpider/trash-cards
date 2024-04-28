@@ -1,11 +1,25 @@
+body {
+    margin: 0;
+}
+
 img {
     width: 20rem;
     height: 20rem;
     object-fit: cover;
 }
 
-ul {
-    list-style: none;
+@media (max-width: 1300px) {
+    img {
+        width: 10rem;
+        height: 10rem;
+    }
+}
+
+@media (max-width: 470px) {
+    img {
+        width: 7rem;
+        height: 7rem;
+    }
 }
 
 hr {
@@ -13,6 +27,16 @@ hr {
     width: 90%;
     margin-top: 2rem;
     margin-bottom: 2rem;
+}
+
+.header {
+    background-color: #4f2683;
+    text-align: center;
+    color: #f2f2f7;
+}
+
+.header h1 {
+    margin-top: 0;
 }
 
 .App {
@@ -24,9 +48,20 @@ hr {
     grid-template-columns: 1fr 0.5fr;
 }
 
+@media (max-width: 830px) {
+    .container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .first-element {
+        justify-items: center;
+    }
+}
+
 .first-element {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    justify-content: space-between;
 }
 
 .empty-img {
@@ -36,4 +71,23 @@ hr {
 .second-element {
     padding-inline: 2rem;
     background-color: #f2f2f7;
+}
+
+.btn {
+    background-color: #4f2683;
+    color: #f2f2f7;
+    font-size: 1.3rem;
+    padding: 0.3rem;
+    width: 100%;
+    border: none;
+    margin-bottom: 2rem;
+}
+
+.footer {
+    margin-top: 2rem;
+    background-color: #4f2683;
+    text-align: center;
+    color: #f2f2f7;
+    position: absolute;
+    width: 100%;
 }
