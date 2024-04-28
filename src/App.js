@@ -1,3 +1,4 @@
+import { AddCandidate } from './AddCandidate';
 import Button from './Button';
 import { CanditatList } from './CanditatList';
 import { useState } from 'react';
@@ -40,7 +41,10 @@ export default function App() {
         <div className="App">
             <CanditatList canditates={candidats} />
             {showAddNewCandidates ? (
-                <AddCandidate onNewCandidat={addNewCandidat} />
+                <AddCandidate
+                    onNewCandidat={addNewCandidat}
+                    closeSection={handleShowNewCandidates}
+                />
             ) : null}
             {!showAddNewCandidates ? (
                 <Button onClick={handleShowNewCandidates}>
@@ -48,85 +52,5 @@ export default function App() {
                 </Button>
             ) : null}
         </div>
-    );
-}
-
-function AddCandidate({ onNewCandidat }) {
-    const [name, setName] = useState('');
-    const [alter, setAlter] = useState('');
-    const [rating, setRating] = useState('');
-    const [image1, setImage1] = useState('');
-    const [image2, setImage2] = useState('');
-    const [describtion, setDescribtion] = useState('');
-
-    function onSubmit(e) {
-        e.preventDefault();
-
-        const newCanditate = {
-            id: crypto.randomUUID(),
-            name,
-            image1,
-            image2,
-            describtion,
-            rating,
-            ratingRange: 10,
-            alter,
-        };
-        onNewCandidat(newCanditate);
-        setName('');
-        setAlter('');
-        setRating('');
-        setImage1('');
-        setImage2('');
-        setDescribtion('');
-    }
-
-    return (
-        <form onSubmit={onSubmit}>
-            <div className="container">
-                <input
-                    type="text"
-                    placeholder="name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                />
-                <input
-                    type="text"
-                    placeholder="Alter"
-                    value={alter}
-                    onChange={(e) => setAlter(e.target.value)}
-                    required
-                />
-                <input
-                    type="text"
-                    placeholder="Rating"
-                    value={rating}
-                    onChange={(e) => setRating(e.target.value)}
-                    required
-                />
-                <input
-                    type="url"
-                    placeholder="image1"
-                    value={image1}
-                    onChange={(e) => setImage1(e.target.value)}
-                    required
-                />
-                <input
-                    type="url"
-                    placeholder="image2"
-                    value={image2}
-                    onChange={(e) => setImage2(e.target.value)}
-                />
-                <textarea
-                    type="text"
-                    placeholder="please add a describtion"
-                    value={describtion}
-                    onChange={(e) => setDescribtion(e.target.value)}
-                    required
-                />
-            </div>
-            <button className="btn">Add</button>
-        </form>
     );
 }
