@@ -35,6 +35,23 @@ hr {
     margin-bottom: 2rem;
 }
 
+input {
+    text-align: center;
+    border-radius: 0.2rem;
+}
+
+textarea {
+    border-radius: 0.2rem;
+    margin-bottom: 2rem;
+    height: 5rem;
+}
+
+.s-txt {
+    font-size: 0.8rem;
+    text-align: center;
+    color: #4f2683;
+}
+
 .header {
     background-color: #4f2683;
     text-align: center;
