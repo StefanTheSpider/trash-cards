@@ -1,10 +1,34 @@
 import { useState } from 'react';
 import Button from './Button';
 
-export function Canditat({ candidate }) {
+export function Canditat({ candidate, addImage }) {
     const [showDeskription, setShowDescription] = useState(false);
     function handleShowDescription() {
         setShowDescription(!showDeskription);
+    }
+
+    const [showForm, setShowForm] = useState(false);
+    function handleShowForm() {
+        setShowForm(!showForm);
+    }
+
+    const [updatedImage, setUpdatedImage] = useState('');
+    function onSubmit(e) {
+        e.preventDefault();
+
+        const restyledImage = {
+            id: candidate.id,
+            name: candidate.name,
+            image1: candidate.image1,
+            image2: updatedImage,
+            describtion: candidate.describtion,
+            rating: candidate.rating,
+            ratingRange: candidate.ratingRange,
+            alter: candidate.alter,
+        };
+        addImage(restyledImage);
+        setShowForm(false);
+        setUpdatedImage('');
     }
 
     const secondImage = candidate.image2;
@@ -52,7 +76,24 @@ export function Canditat({ candidate }) {
                 </div>
                 <hr />
             </div>
-            {secondImage === '' ? <Button>Add restyling image</Button> : ''}
+            {secondImage === '' && !showForm ? (
+                <Button onClick={handleShowForm}>Add restyling image</Button>
+            ) : (
+                ''
+            )}
+            {showForm ? (
+                <form className="container" onSubmit={onSubmit}>
+                    <input
+                        type="text"
+                        placeholder="paste in the picture url"
+                        value={updatedImage}
+                        onChange={(e) => setUpdatedImage(e.target.value)}
+                    />
+                    <button className="btn">
+                        Add the picture after restyling
+                    </button>
+                </form>
+            ) : null}
         </div>
     );
 }

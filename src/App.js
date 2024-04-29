@@ -37,9 +37,19 @@ export default function App() {
         setCandidats((candidats) => [...candidats, canditate]);
     }
 
+    function addImage(canditate) {
+        setCandidats((candidats) =>
+            candidats.map((candidat) =>
+                candidat.id === canditate.id
+                    ? { ...candidat, image2: canditate.image2 }
+                    : candidat
+            )
+        );
+    }
+
     return (
         <div className="App">
-            <CanditatList canditates={candidats} />
+            <CanditatList canditates={candidats} addImage={addImage} />
             {showAddNewCandidates ? (
                 <AddCandidate
                     onNewCandidat={addNewCandidat}

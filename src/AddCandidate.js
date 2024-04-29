@@ -10,7 +10,6 @@ export function AddCandidate({ onNewCandidat, closeSection }) {
 
     function onSubmit(e) {
         e.preventDefault();
-
         const newCanditate = {
             id: crypto.randomUUID(),
             name,
@@ -71,6 +70,9 @@ export function AddCandidate({ onNewCandidat, closeSection }) {
                 />
             </div>
             <button className="btn">Add</button>
+            <button className="btn" onClick={() => closeSection()}>
+                close
+            </button>
         </form>
     );
 }
