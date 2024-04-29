@@ -37,9 +37,17 @@ export function Canditat({ candidate, addImage }) {
         <div>
             <div className="container">
                 <div className="first-element">
-                    <img src={candidate.image1} alt="Bild 1" />
+                    <img
+                        style={{ outline: '2px solid #4f2683' }}
+                        src={candidate.image1}
+                        alt="Bild 1"
+                    />
                     {secondImage !== '' ? (
-                        <img src={candidate.image2} alt="Bild 2" />
+                        <img
+                            style={{ outline: '2px solid #4f2683' }}
+                            src={candidate.image2}
+                            alt="Bild 2"
+                        />
                     ) : (
                         <img
                             style={{ outline: '2px solid tomato' }}
