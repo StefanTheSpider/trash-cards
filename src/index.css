@@ -115,4 +115,5 @@ textarea {
     color: #f2f2f7;
     position: absolute;
     width: 100%;
+    bottom: 0;
 }
