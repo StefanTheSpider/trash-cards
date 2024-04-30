@@ -49,7 +49,7 @@ export function AddCandidate({ onNewCandidat, closeSection }) {
                 />
                 <input
                     type="text"
-                    placeholder="Rating"
+                    placeholder="Rating: paste a number between -10 and 10"
                     value={rating}
                     onChange={(e) => setRating(e.target.value)}
                     required
