@@ -2,9 +2,10 @@ import { AddCandidate } from './AddCandidate';
 import Button from './Button';
 import { CanditatList } from './CanditatList';
 import { useState } from 'react';
+import { useEffect } from 'react';
 
 const allCandidats = [
-    {
+    /*{
         id: 1,
         describtion: "Chantal's hobby ist doggy",
         rating: 10,
@@ -24,9 +25,16 @@ const allCandidats = [
         image1: 'https://preview.redd.it/this-person-does-not-exist-v0-9l5x3d2g21591.jpg?auto=webp&s=97e2a0e5624f9e052678ddb38812fea2945f5b19',
         image2: '',
     },
+    */
 ];
 export default function App() {
-    const [candidats, setCandidats] = useState(allCandidats);
+    const [candidats, setCandidats] = useState(
+        JSON.parse(localStorage.getItem('candidats')) || allCandidats
+    );
+
+    useEffect(() => {
+        localStorage.setItem('candidats', JSON.stringify(candidats));
+    }, [candidats]);
     const [showAddNewCandidates, setShowAddNewCandidates] = useState(false);
 
     function handleShowNewCandidates() {
