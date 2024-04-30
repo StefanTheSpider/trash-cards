@@ -41,6 +41,9 @@ export function Canditat({ candidate, addImage }) {
                         style={{ outline: '2px solid #4f2683' }}
                         src={candidate.image1}
                         alt="Bild 1"
+                        onDoubleClick={() =>
+                            console.log('you just dubleclicked this image')
+                        }
                     />
                     {secondImage !== '' ? (
                         <img
